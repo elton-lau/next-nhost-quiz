@@ -4,6 +4,7 @@ import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa'
 import { Group, Title, Text, Container, Input, SimpleGrid } from '@mantine/core';
 import { useState } from 'react'
 import { Button, Stack } from '@mantine/core';
+import { NextLink } from '@mantine/next';
 
 const Signup = () => {
   const [displayName, setDisplayName] = useState('');
@@ -31,11 +32,10 @@ const Signup = () => {
       console.error(err);
     }
 
-    router.push('/login')
+    router.push('/')
   }
 
   return (
-    <Group mx="auto">
       <Group position="apart" style={{ width: "100%" }} direction='column' align='center'>
         <Title order={1}>Register</Title>
         <form onSubmit={handleSubmit}>
@@ -45,8 +45,10 @@ const Signup = () => {
             <Input style={{ width: "100%" }} type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} autoFocus placeholder="Password" />
           </Stack>
           <Group mt="sm" position="center">
-            <Button color="green" type="submit">Sign Up</Button>
-            <Button color="red" href="/">Go Back</Button>
+            <Button color="green" type="submit">Login</Button>
+            <NextLink href="/">
+              <Button color="red">Go Back</Button>
+            </NextLink>
           </Group>
         </form>
         <SimpleGrid cols={3}  mt="md">
@@ -54,10 +56,8 @@ const Signup = () => {
           <Button leftIcon={<FaGithub />} href={GITHUB_LOGIN} component="a">Github</Button>
           <Button leftIcon={<FaFacebook />}>Facebook</Button>
         </SimpleGrid>
+        <Text mt={20}>Already have an acount? <NextLink href="/login">Click here to log in</NextLink></Text>
       </Group>
-
-
-    </Group>
   )
 };
 export default Signup;

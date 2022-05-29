@@ -41,7 +41,7 @@ const Login = () => {
             <Input style={{ width: "100%" }} type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} autoFocus placeholder="Password" />
           </Stack>
           <Group mt="sm" position="center">
-            <Button color="green" type="submit">Sign Up</Button>
+            <Button color="green" type="submit">Login</Button>
             <NextLink href="/">
               <Button color="red">Go Back</Button>
             </NextLink>
